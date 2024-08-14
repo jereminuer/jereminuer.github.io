@@ -1,4 +1,11 @@
-
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: #333;
+    color: white;
+}
 
 .navbar {
     display: flex;
