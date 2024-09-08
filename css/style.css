@@ -49,6 +49,7 @@
 .section {
    text-align: center;
    margin: 0 auto;
+   max-width: fit-content;
 }
 
 .section h2 {
@@ -63,4 +64,8 @@
    list-style-type: none;
    margin: 0;
    padding: 0;
+}
+
+.section ul li {
+   margin-bottom: 10px;
 }
