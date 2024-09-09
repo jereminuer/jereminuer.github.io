@@ -2,7 +2,7 @@
    display: flex;
    justify-content: space-between;
    align-items: center;
-   padding: 50px;
+   padding: 30px;
    background-color: white;
    color: black;
    margin: 0;
@@ -36,9 +36,10 @@
 .logo {
    font-size: 24px;
    font-weight: bold;
+   text-align: center;
 }
 
-.resume {
+.buttons {
    background-color: #5a5656;
    color: white;
    padding: 10px 20px;
@@ -68,4 +69,10 @@
 
 .section ul li {
    margin-bottom: 10px;
+}
+
+.projects-container {
+   display: flex;
+   justify-content: space-around;
+   flex-wrap: wrap;
 }
