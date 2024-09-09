@@ -75,4 +75,69 @@
    display: flex;
    justify-content: space-around;
    flex-wrap: wrap;
+   padding: 20px;
+}
+
+.project-block {
+   display: flex;
+   background-color: #f9f9f9;
+   flex-direction: column;
+   border: 1px solid #ddd;
+   border-radius: 5px;
+   margin: 10px;
+   padding: 20px;
+   max-width: 300px;
+}
+
+.project-details {
+   flex: 1; /* Take up remaining space */
+}
+
+.project-details h3 {
+   margin-top: 0;
+}
+
+.project-links {
+   list-style-type: none;
+   padding: 0;
+   margin-top: 10px;
+}
+
+.project-links li {
+   display: inline;
+   margin-right: 10px;
+}
+
+.project-links a {
+   text-decoration: none;
+   color: #007bff;
+}
+
+.project-links a:hover {
+   text-decoration: underline;
+}
+
+.project-image {
+   max-width: 100%;
+   height: auto;
+   border-radius: 8px;
+   margin-bottom: 10px; /* Space between image and details on smaller screens */
+}
+
+@media (min-width: 600px) {
+   .project-block {
+      flex-direction: row; /* Align items horizontally on larger screens */
+      max-width: 45%; /* Adjust max-width to fit 2 blocks per row */
+   }
+   .project-image {
+      margin-right: 20px;
+      margin-bottom: 0px;
+      max-width: 150px;
+   }
+}
+
+@media (min-width: 900px) {
+   .project-block {
+      max-width: 30%; /* Adjust max-width to fit 3 blocks per row */
+   }
 }
