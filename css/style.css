@@ -114,14 +114,17 @@
 }
 
 .project-links {
+   display: flex;
    list-style-type: none;
    padding: 0;
    margin-top: 10px;
+   justify-content: space-around;
 }
 
 .project-links li {
-   display: inline;
-   margin-right: 10px;
+   flex: 1;
+   text-align: center;
+
 }
 
 .project-links a {
