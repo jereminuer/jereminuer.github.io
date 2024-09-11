@@ -1,3 +1,5 @@
+
+/* ACROSS ALL PAGES */
 .header-container {
    display: flex;
    justify-content: space-around;
@@ -39,6 +41,7 @@
    text-align: center;
 }
 
+/* INDEX PAGE */
 .buttons {
    background-color: #5a5656;
    color: white;
@@ -47,6 +50,7 @@
    text-decoration: none;
 }
 
+/* BLOG PAGE */
 .section {
    text-align: center;
    margin: 0 auto;
@@ -71,6 +75,16 @@
    margin-bottom: 10px;
 }
 
+.section ul li a {
+   text-decoration: none;
+   color: #007bff;
+}
+
+.section ul li a:hover {
+   text-decoration: underline;
+}
+
+/* PROJECTS PAGE */
 .projects-container {
    display: flex;
    justify-content: space-around;
