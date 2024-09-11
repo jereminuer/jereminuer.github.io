@@ -2,9 +2,9 @@
 /* ACROSS ALL PAGES */
 .header-container {
    display: flex;
-   justify-content: space-around;
+   justify-content: space-between;
    align-items: center;
-   padding: 30px;
+   padding: 30px 30px;
    background-color: white;
    color: black;
    margin: 0;
