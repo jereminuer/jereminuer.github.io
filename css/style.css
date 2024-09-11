@@ -145,11 +145,6 @@
       max-width: 45%; /* Adjust max-width to fit 2 blocks per row */
       flex-direction: column;
    }
-   .project-image {
-      margin-right: 20px;
-      margin-bottom: 0px;
-      max-width: 150px;
-   }
 }
 
 @media (min-width: 900px) {
