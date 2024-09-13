@@ -44,16 +44,19 @@
 /* INDEX PAGE */
 .index_block {
    display: flex;
+   align-items: center;
+   height: 100vh;
 }
 
 .index_image {
    flex: 2;
+   max-width: 80%;
+   height: auto;
 }
 
 .buttons {
    display: flex;
    justify-content: center;
-   margin-top: 20px;
    flex-direction: column;
    flex: 1;
 }
