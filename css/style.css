@@ -42,12 +42,29 @@
 }
 
 /* INDEX PAGE */
+.index_block {
+   display: flex;
+}
+
+.index_image {
+   flex: 2;
+}
+
 .buttons {
+   display: flex;
+   justify-content: center;
+   margin-top: 20px;
+   flex-direction: column;
+   flex: 1;
+}
+
+.buttons a {
    background-color: #5a5656;
    color: white;
    padding: 10px 20px;
    border-radius: 5px;
    text-decoration: none;
+   margin-bottom: 10px;
 }
 
 /* BLOG PAGE */
@@ -123,7 +140,7 @@
 
 .project-links li {
    flex: 1;
-   text-align: left;
+   text-align: center;
 
 }
 
