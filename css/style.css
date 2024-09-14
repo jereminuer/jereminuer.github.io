@@ -54,6 +54,7 @@
    height: auto;
    padding-right: 5%;
    border-radius: 20px;
+   overflow: hidden;
 }
 
 .buttons {
@@ -171,11 +172,19 @@
       max-width: 45%; /* Adjust max-width to fit 2 blocks per row */
       flex-direction: column;
    }
+
+   .index_block {
+      padding: 5% 10%;
+   }
 }
 
 @media (min-width: 900px) {
    .project-block {
       max-width: 30%; /* Adjust max-width to fit 3 blocks per row */
       flex-direction: column;
+   }
+
+   .index_block {
+      padding: 5% 20%;
    }
 }
