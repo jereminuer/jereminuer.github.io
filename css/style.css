@@ -51,17 +51,17 @@
 
 .index_image {
    flex: 2;
-   max-width: 100%;
+   max-width: 66.66%;
    width: 100%;
    height: auto;
-   justify-content: center;
 }
 
 .buttons {
    display: flex;
+   flex: 1;
    justify-content: center;
    flex-direction: column;
-   
+   max-width: 400px;
 }
 
 .buttons a {
