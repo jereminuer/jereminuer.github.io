@@ -68,7 +68,7 @@
 .buttons a {
    background-color: #f9f9f9;
    border: 0.5px solid #ddd;
-   color: white;
+   color: black;
    padding: 10px 20px;
    border-radius: 5px;
    text-decoration: none;
@@ -80,6 +80,7 @@
    text-align: center;
    margin: 0 auto;
    max-width: fit-content;
+   padding: 0 5%;
 }
 
 .section h2 {
