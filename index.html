@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/png" href="assets/robot.png" />
   <title>Hi! I'm Jeremi</title>
   <style>
     /* --- basic reset & palette --- */
@@ -64,12 +65,10 @@
   <header>
     <div class="container topbar">
       <div class="intro">
-        <!-- supply your own image file in /assets and update src -->
         <img src="assets/me4.jpg" alt="Jeremi photo" class="avatar" />
         <h1 style="margin:0">Hi! I'm Jeremi</h1>
       </div>
       <nav>
-        <!-- update the hrefs with your real accounts -->
         <a href="mailto:jereminuerofficial@gmail.com">Email</a>
         <a href="https://linkedin.com/in/jereminuer" target="_blank" rel="noopener">LinkedIn</a>
         <a href="https://x.com/jereminuer" target="_blank" rel="noopener">X</a>
@@ -135,12 +134,7 @@
 
   <!-- ────────────────────────────  SCRIPTS  ──────────────────────────── -->
   <script>
-    // Fetch the most‑recent Substack post and render the title + link.
-    // 1️⃣  Replace "your‑publication" with your real Substack name (or full RSS URL).
-    // 2️⃣  Because browsers block cross‑origin XML fetches, we pipe the RSS through the
-    //      free rss2json.com service. For personal sites this is usually fine; if you
-    //      need heavier use, create your own proxy.
-    const RSS_URL = "https://lucandjeremi.substack.com/feed"; // <‑‑ update me
+    const RSS_URL = "https://lucandjeremi.substack.com/feed"; 
     const target = document.getElementById("latest-post");
 
     fetch(
