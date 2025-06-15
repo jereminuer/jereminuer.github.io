@@ -58,6 +58,45 @@
     ul ul { margin-top: 0.25rem; }
     #work > ul > li { margin-bottom: 1.5rem; }
     #work > ul > li:last-child { margin-bottom: 0; }
+
+    /* --- modal --- */
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.8);
+      z-index: 1000;
+    }
+
+    .modal-content {
+      position: relative;
+      width: 90%;
+      max-width: 1200px;
+      height: 90%;
+      margin: 2% auto;
+      background: white;
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    .modal-close {
+      position: absolute;
+      right: 10px;
+      top: 10px;
+      color: white;
+      font-size: 24px;
+      cursor: pointer;
+      z-index: 1001;
+    }
+
+    .modal iframe, .modal video {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
   </style>
 </head>
 <body>
@@ -91,7 +130,7 @@
         <li>
           Training humanoid robots to walk in simulation
           <ul>
-            <li><a href="https://github.com/jereminuer/robot-learning-gym">github</a>, <a href="https://lucandjeremi.substack.com/i/156056781/jeremi-stepping-in-simulation">blog post</a></li>
+            <li><a href="#" onclick="openModal('assets/robot_vid.mp4'); return false;">video</a>, <a href="https://github.com/jereminuer/robot-learning-gym">github</a>, <a href="https://lucandjeremi.substack.com/i/156056781/jeremi-stepping-in-simulation">blog post</a></li>
           </ul>
         </li>
         <li>
@@ -101,13 +140,12 @@
           </ul>
         </li>
         <li>
-          Taught a <a href="https://www.youtube.com/watch?v=MluAbFppFws&t=1s">lecture</a> on the fundamentals of Deep Learning
+          Taught a <a href="https://www.youtube.com/watch?v=MluAbFppFws&t=1s">lecture</a> on Deep Learning
         </li>
         <li>
           Interned at Lawrence Livermore National Laboratory
           <ul>
-            <li>Implemented a distributed query engine & data aggregation system</li>
-            <li><a href="#">Slideshow</a></li>
+            <li>Implemented a distributed query engine & data aggregation system (<a href="#" onclick="openModal('assets/hpcPresent.pdf'); return false;">slides</a>)</li>
           </ul>
         </li>
         <li>
@@ -132,8 +170,78 @@
     </section>
   </main>
 
+  <!-- ────────────────────────────  MODAL  ──────────────────────────── -->
+  <div id="modal" class="modal">
+    <div class="modal-content">
+      <span class="modal-close">&times;</span>
+      <iframe id="modal-iframe" src=""></iframe>
+      <video id="modal-video" controls style="display: none;" preload="auto">
+        <source src="" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+    </div>
+  </div>
+
   <!-- ────────────────────────────  SCRIPTS  ──────────────────────────── -->
   <script>
+    // Modal functionality
+    const modal = document.getElementById('modal');
+    const modalIframe = document.getElementById('modal-iframe');
+    const modalVideo = document.getElementById('modal-video');
+    const closeBtn = document.querySelector('.modal-close');
+
+    function openModal(url) {
+      modal.style.display = 'block';
+      
+      // Check if the URL is a video file
+      if (url.endsWith('.mov') || url.endsWith('.mp4') || url.endsWith('.webm')) {
+        modalIframe.style.display = 'none';
+        modalVideo.style.display = 'block';
+        modalVideo.querySelector('source').src = url;
+        
+        // Add error handling
+        modalVideo.onerror = function(e) {
+          console.error('Video Error:', e);
+          console.error('Error code:', modalVideo.error.code);
+          console.error('Error message:', modalVideo.error.message);
+        };
+
+        // Add loading state handling
+        modalVideo.onloadstart = function() {
+          console.log('Video loading started');
+        };
+        
+        modalVideo.onloadeddata = function() {
+          console.log('Video data loaded');
+        };
+
+        modalVideo.load();
+        modalVideo.play().catch(function(error) {
+          console.error('Playback failed:', error);
+        });
+      } else {
+        // For PDFs and other documents
+        modalVideo.style.display = 'none';
+        modalIframe.style.display = 'block';
+        modalIframe.src = url;
+      }
+    }
+
+    function closeModal() {
+      modal.style.display = 'none';
+      modalIframe.src = '';
+      modalVideo.pause();
+      modalVideo.querySelector('source').src = '';
+    }
+
+    closeBtn.onclick = closeModal;
+    window.onclick = function(event) {
+      if (event.target == modal) {
+        closeModal();
+      }
+    }
+
+    // Newsletter fetch code
     const RSS_URL = "https://lucandjeremi.substack.com/feed"; 
     const target = document.getElementById("latest-post");
 
@@ -144,7 +252,15 @@
       .then((data) => {
         if (data.items && data.items.length) {
           const post = data.items[0];
-          target.innerHTML = `<a href="${post.link}" target="_blank" rel="noopener">${post.title}</a>`;
+          const date = new Date(post.pubDate);
+          const formattedDate = date.toLocaleDateString('en-US', { 
+            month: 'long', 
+            day: 'numeric' 
+          });
+          target.innerHTML = `
+            <span style="color: #666">${formattedDate}:</span>
+            <a href="${post.link}" target="_blank" rel="noopener" style="margin-left: 0.5rem">${post.title}</a>
+          `;
         } else {
           target.textContent = "No posts found.";
         }
