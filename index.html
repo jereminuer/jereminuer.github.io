@@ -1,30 +1,164 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <title>Jeremi Nuer</title>
-        <link rel="icon" href="./files/pixil-frame-0.png">
-        <link href="css/style.css" rel="stylesheet">
-   </head>
-   <body>
-        <header class="header-container">
-            <h1 class="logo">Hi! I'm Jeremi.</h1>
-            <nav class="navbar">
-                <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="projects.html">Projects</a></li>
-                    <li><a href="blog.html">Writing</a></li>
-                </ul>    
-            </nav>
-        </header>
-        <div class="index_block">
-            <div class="index_image">
-                <img src="./files/pfp.jpg" alt="Image of Jeremi" class="index_image">
-            </div>
-            <div class="buttons">
-               <a href="https://github.com/jereminuer" target="_blank">GitHub</a>
-               <a href="https://lucandjeremi.substack.com/" target="_blank">Newsletter</a>
-               <a href="./files/resumeS25.pdf" download>Resume</a>
-            </div>
-         </div>
-   </body>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hi! I'm Jeremi</title>
+  <style>
+    /* --- basic reset & palette --- */
+    *, *::before, *::after { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+        Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+      line-height: 1.6;
+      color: #222;
+      background: #fefefe;
+    }
+
+    a { color: #6b7280; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* --- layout helpers --- */
+    .container { max-width: 900px; margin: 0 auto; padding: 1rem; }
+
+    /* --- top bar --- */
+    header {
+      background: #fff;
+      border-bottom: 1px solid #eee;
+    }
+
+    .topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .intro {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+    }
+
+    .avatar {
+      width: 114px;
+      height: 114px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+
+    nav a + a { margin-left: 1rem; }
+
+    /* --- sections --- */
+    main section { margin: 2.5rem 0; }
+    main h2 { margin-top: 0; }
+
+    ul { padding-left: 1.25rem; }
+    ul ul { margin-top: 0.25rem; }
+    #work > ul > li { margin-bottom: 1.5rem; }
+    #work > ul > li:last-child { margin-bottom: 0; }
+  </style>
+</head>
+<body>
+  <!-- ────────────────────────────  HEADER  ──────────────────────────── -->
+  <header>
+    <div class="container topbar">
+      <div class="intro">
+        <!-- supply your own image file in /assets and update src -->
+        <img src="assets/me4.jpg" alt="Jeremi photo" class="avatar" />
+        <h1 style="margin:0">Hi! I'm Jeremi</h1>
+      </div>
+      <nav>
+        <!-- update the hrefs with your real accounts -->
+        <a href="mailto:jereminuerofficial@gmail.com">Email</a>
+        <a href="https://linkedin.com/in/jereminuer" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://x.com/jereminuer" target="_blank" rel="noopener">X</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ────────────────────────────  MAIN  ──────────────────────────── -->
+  <main class="container">
+    <!-- Latest newsletter -------------------------------------------------->
+    <section id="newsletter">
+      <h2>Latest newsletter</h2>
+      <p id="latest-post">Loading…</p>
+    </section>
+
+    <!-- Past work ----------------------------------------------------------->
+    <section id="work">
+      <h2>Things I've worked on</h2>
+      <ul>
+        <li>
+          Training humanoid robots to walk in simulation
+          <ul>
+            <li><a href="https://github.com/jereminuer/robot-learning-gym">github</a>, <a href="https://lucandjeremi.substack.com/i/156056781/jeremi-stepping-in-simulation">blog post</a></li>
+          </ul>
+        </li>
+        <li>
+          A quantum 8‑ball (with IBM's quantum super‑computer)
+          <ul>
+            <li><a href="https://quantum8ball.tech/">website</a>, <a href="https://github.com/jereminuer/quantum_eight_ball">github</a></li>
+          </ul>
+        </li>
+        <li>
+          Taught a <a href="https://www.youtube.com/watch?v=MluAbFppFws&t=1s">lecture</a> on the fundamentals of Deep Learning
+        </li>
+        <li>
+          Interned at Lawrence Livermore National Laboratory
+          <ul>
+            <li>Implemented a distributed query engine & data aggregation system</li>
+            <li><a href="#">Slideshow</a></li>
+          </ul>
+        </li>
+        <li>
+          Built an <a href="https://github.com/edis0n-zhang/Tapestry">AI news source</a> (website inactive)
+        </li>
+        <li>
+          Wrote an <a href="https://medium.com/data-science/interpretable-features-in-large-language-models-377fb25c72eb">article</a> published in Towards Data Science
+        </li>
+        <li>
+          Wrote a <a href="https://jereminuer.notion.site/The-Complete-Guide-to-Transformers-f14175c695c9407b9e234ab6718488db">deep dive</a> on Transformer models
+        </li>
+        <li>
+          Built a <a href="https://github.com/jereminuer/simple_neural_net/tree/main">neural network</a> from scratch
+        </li>
+        <li>
+          Made Deep Q-Learning for Cart Pole
+          <ul>
+            <li><a href="https://www.youtube.com/watch?v=6IdnC_AsIWc">Youtube Tutorial</a>, <a href="https://github.com/jereminuer/DQN_Cart-Pole/tree/main">Github</a>, <a href="https://medium.com/@jereminuerofficial/q-learning-an-introduction-f1392738bcf">Article</a></li>
+          </ul>
+        </li>
+      </ul>
+    </section>
+  </main>
+
+  <!-- ────────────────────────────  SCRIPTS  ──────────────────────────── -->
+  <script>
+    // Fetch the most‑recent Substack post and render the title + link.
+    // 1️⃣  Replace "your‑publication" with your real Substack name (or full RSS URL).
+    // 2️⃣  Because browsers block cross‑origin XML fetches, we pipe the RSS through the
+    //      free rss2json.com service. For personal sites this is usually fine; if you
+    //      need heavier use, create your own proxy.
+    const RSS_URL = "https://lucandjeremi.substack.com/feed"; // <‑‑ update me
+    const target = document.getElementById("latest-post");
+
+    fetch(
+      `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(RSS_URL)}`
+    )
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.items && data.items.length) {
+          const post = data.items[0];
+          target.innerHTML = `<a href="${post.link}" target="_blank" rel="noopener">${post.title}</a>`;
+        } else {
+          target.textContent = "No posts found.";
+        }
+      })
+      .catch((err) => {
+        console.error(err);
+        target.textContent = "Unable to load newsletter.";
+      });
+  </script>
+</body>
 </html>
